@@ -23,14 +23,14 @@ pipeline{
             stage("Deploy on Test"){
             steps{
                 echo "========Deployment on test========"
-                deploy adapters: [tomcat9(credentialsId: 'tomcatcreddetails', path: '', url: 'http://65.0.203.29:8080')], contextPath: '/app', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcatcreddetails', path: '', url: 'http://65.1.130.255:8080')], contextPath: '/app', war: '**/*.war'
             }
             
         }
         stage("Deploy on Prod"){
             steps{
                 echo "========Deployment on prod========"
-            deploy adapters: [tomcat9(credentialsId: 'tomcatcreddetails', path: '', url: 'http://65.0.203.29:8080')], contextPath: '/app', war: '**/*.war'
+            deploy adapters: [tomcat9(credentialsId: 'tomcatcreddetails', path: '', url: 'http://65.2.141.121:8080')], contextPath: '/app', war: '**/*.war'
             }
             
         }
