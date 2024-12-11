@@ -1,0 +1,46 @@
+pipeline{
+    agent none
+    tool name: '', type: 'maven'
+    stages{
+        stage("Test"){
+            agent main
+            steps{
+                echo "========Check mvn version========"                
+                sh "mvn --version"
+            }
+
+        }
+
+                stage("Build"){
+            steps{
+                echo "========executing A========"
+            }
+
+        }
+
+                stage("Deploy on Test"){
+            steps{
+                echo "========executing A========"
+            }
+
+        }
+
+                stage("Deploy on Prod"){
+            steps{
+                echo "========executing A========"
+            }
+
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
