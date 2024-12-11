@@ -3,7 +3,9 @@ pipeline{
     tool name: '', type: 'maven'
     stages{
         stage("Test"){
-            agent main
+            agent {
+       label 'main'
+     }
             steps{
                 echo "========Check mvn version========"                
                 sh "mvn --version"
