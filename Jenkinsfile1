@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent none
     tools {
     maven 'Maven'
     }
@@ -9,15 +9,18 @@ pipeline{
        label 'main'
      }
             steps{
-                echo "========Check mvn version========"                
+                echo "========Check mvn version and run test cases========"                
                 sh "mvn --version"
+                sh "mvn test"
             }
 
         }
 
                 stage("Build"){
             steps{
-                echo "========executing A========"
+                echo "========Build a test cases========"
+                sh "mvn install"
+
             }
 
         }
