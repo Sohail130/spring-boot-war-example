@@ -1,6 +1,8 @@
 pipeline{
     agent none
-    tool name: 'Maven', type: 'maven'
+    tools {
+    maven 'Maven'
+    }
     stages{
         stage("Test"){
             agent {
