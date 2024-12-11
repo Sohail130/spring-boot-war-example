@@ -17,6 +17,9 @@ pipeline{
         }
 
                 stage("Build"){
+        agent {
+       label 'main'
+     }
             steps{
                 echo "========Build a test cases========"
                 sh "mvn install"
