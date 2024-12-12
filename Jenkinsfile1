@@ -23,6 +23,7 @@ pipeline{
             steps{
                 echo "========Build a test cases========"
                 sh "mvn package"
+               archiveArtifacts artifacts: '**/*.war', followSymlinks: false
 
             }
 
@@ -36,6 +37,7 @@ pipeline{
             steps{
 sh 'sudo bash /home/ec2-user/tomcatsetup.sh'
 echo "Tomcat has been configured successfully, now deploying a war file on the test server"
+copyArtifacts filter: '**/*war', fingerprintArtifacts: true, projectName: 'War-deploy-using-PP', selector: lastSuccessful()
 deploy adapters: [tomcat9(credentialsId: 'tccreds', path: '', url: 'http://65.1.148.58:8080/')], contextPath: '/app', war: '**/*.war'
             }
 
