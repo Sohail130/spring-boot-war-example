@@ -22,15 +22,19 @@ pipeline{
      }
             steps{
                 echo "========Build a test cases========"
-                sh "mvn install"
+                sh "mvn package"
 
             }
 
         }
 
                 stage("Deploy on Test"){
+  agent {
+       label 'test'
+     }
+
             steps{
-                echo "========executing A========"
+sh 'bash /home/ec2-user/tomcatsetup.sh'
             }
 
         }
