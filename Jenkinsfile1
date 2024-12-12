@@ -34,7 +34,7 @@ pipeline{
      }
 
             steps{
-sh 'bash /home/ec2-user/tomcatsetup.sh'
+sh 'sudo bash /home/ec2-user/tomcatsetup.sh'
 echo "Tomcat has been configured successfully, now deploying a file on the test servers"
             }
 
