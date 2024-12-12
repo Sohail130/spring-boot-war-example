@@ -23,7 +23,7 @@ public class HelloWorldApplication extends SpringBootServletInitializer {
 
     @RequestMapping("/")
     String helloWorld() {
-        return "Deploying War file on Test and Prod server using Jenkinsfile";
+        return "Deploying War file on Test and Prod server using Jenkinsfile Pipeline";
     }
 
 }
