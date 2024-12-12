@@ -37,7 +37,7 @@ pipeline{
             steps{
 sh 'sudo bash /home/ec2-user/tomcatsetup.sh'
 echo "Tomcat has been configured successfully, now deploying a war file on the test server"
- copyArtifacts(projectName: 'Your_Project_Name', filter: 'target/*.war', target: 'target/')
+ copyArtifacts(projectName: 'War-deploy-using-PP', filter: 'target/*.war', target: 'target/')
  deploy adapters: [tomcat9(credentialsId: 'tccreds', path: '', url: 'http://65.x.x.x:8080/')], contextPath: '/app', war: 'target/*.war'  
 }
 
