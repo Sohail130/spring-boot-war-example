@@ -19,7 +19,8 @@ pipeline{
             steps{
                 echo "========Build a test cases========"
                 sh "mvn package"
-                archiveArtifacts artifacts: '**/target/*.war', allowEmptyArchive: true
+                sh 'ls -l target/*.war'
+                archiveArtifacts artifacts: '**/*war', allowEmptyArchive: true
             
             }
 
