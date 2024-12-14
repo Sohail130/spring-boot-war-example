@@ -23,7 +23,7 @@ pipeline{
             stage("Deploy on Test"){
             steps{
                 echo "========Deployment on test========"
-                deploy adapters: [tomcat9(credentialsId: 'tomcatcreddetails', path: '', url: 'http://13.235.71.248:8080')], contextPath: '/app', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tccreds', path: '', url: 'http://13.235.71.248:8080')], contextPath: '/app', war: '**/*.war'
             }
             
         }
