@@ -30,6 +30,7 @@ pipeline{
         stage("Deploy on Prod"){
             steps{
                 echo "========Deployment on prod========"
+                deploy adapters: [tomcat9(credentialsId: 'tccreds', path: '', url: 'http://3.109.157.216:8080')], contextPath: '/app', war: '**/*.war'
             }
             
         }
