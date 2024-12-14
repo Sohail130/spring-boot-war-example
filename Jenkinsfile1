@@ -25,9 +25,6 @@ pipeline{
         }
 
                 stage("Deploy on Test"){
-               agent {
-       label 'test'
-     }
                  
             steps{
 sh 'sudo bash /home/ec2-user/tomcatsetup.sh'
